@@ -1,8 +1,4 @@
 <header class="site-header">
-    <div class="header-top">
-       lei</span> <span><i class="ti ti-truck-delivery"></i> Livrare gratuită la comenzi peste 300 
-    </div>
-
     <div class="header-main">
         <a href="index.php" class="logo">
             <div class="logo-icon">
