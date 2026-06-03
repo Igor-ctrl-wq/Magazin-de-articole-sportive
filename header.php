@@ -47,7 +47,7 @@
                 <a href="register.php" class="btn-primary-header">Înregistrare</a>
             <?php endif; ?>
 
-            <a href="#" class="icon-btn cart-btn" title="Coș de cumpărături">
+            <a href="cos.php" class="icon-btn cart-btn" title="Coș de cumpărături">
                 <i class="ti ti-shopping-cart"></i>
                 <span class="cart-badge">0</span>
             </a>

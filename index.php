@@ -12,9 +12,9 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
 
+<!-- HERO -->
 <section class="hero">
     <div class="hero-inner">
-
         <div class="hero-content">
             <h1 class="hero-title">
                 Performanță la<br>
@@ -25,11 +25,11 @@
                 Livrare rapidă în toată Moldova.
             </p>
             <div class="hero-actions">
-                <a href="#" class="btn-hero-primary">
+                <a href="#produse" class="btn-hero-primary">
                     <i class="ti ti-shopping-bag"></i>
                     Cumpără acum
                 </a>
-                <a href="#" class="btn-hero-secondary">
+                <a href="#produse" class="btn-hero-secondary">
                     <i class="ti ti-category"></i>
                     Vezi categorii
                 </a>
@@ -52,12 +52,15 @@
 
         <div class="hero-visual">
             <div class="hero-img-wrap">
-            <div class="hero-img-main">
-    <img src="images/hero.jpg" alt="SportZone magazin">
-</div>
+                <div class="hero-img-main">
+                    <img src="images/hero.jpg" alt="SportZone magazin">
                 </div>
                 <div class="hero-float-card card-1">
                     <div class="hero-float-icon"><i class="ti ti-truck-delivery"></i></div>
+                    <div>
+                        Livrare gratuită
+                        <span class="hero-float-sub">La comenzi peste 300 lei</span>
+                    </div>
                 </div>
                 <div class="hero-float-card card-2">
                     <div class="hero-float-icon"><i class="ti ti-rosette-discount"></i></div>
@@ -68,82 +71,97 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- PRODUSE -->
+<section class="products-section" id="produse">
+    <div class="products-inner">
+
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">Produse recomandate</h2>
+                <p class="section-subtitle">Cele mai populare articole sportive din colecția noastră</p>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="toate">Toate</button>
+                <button class="filter-tab" data-filter="Încălțăminte">Încălțăminte</button>
+                <button class="filter-tab" data-filter="Îmbrăcăminte">Îmbrăcăminte</button>
+                <button class="filter-tab" data-filter="Echipamente">Echipamente</button>
+                <button class="filter-tab" data-filter="Accesorii">Accesorii</button>
+            </div>
+        </div>
+
+        <?php
+        $produse = [];
+        $fisier = 'data/items.json';
+        if (file_exists($fisier)) {
+            $produse = json_decode(file_get_contents($fisier), true) ?? [];
+        }
+        ?>
+
+        <?php if (empty($produse)): ?>
+            <div class="products-empty">
+                <i class="ti ti-mood-empty"></i>
+                <p>Nu există produse disponibile momentan.</p>
+            </div>
+        <?php else: ?>
+        <div class="products-grid">
+            <?php foreach ($produse as $produs): ?>
+            <div class="product-card" data-categorie="<?= htmlspecialchars($produs['categorie']) ?>">
+                <div class="product-img">
+                    <?php if (file_exists($produs['imagine'])): ?>
+                        <img src="<?= htmlspecialchars($produs['imagine']) ?>" alt="<?= htmlspecialchars($produs['nume']) ?>">
+                    <?php else: ?>
+                        <div class="product-img-placeholder">
+                            <i class="ti ti-photo"></i>
+                        </div>
+                    <?php endif; ?>
+                    <span class="product-category"><?= htmlspecialchars($produs['categorie']) ?></span>
+                    <?php if ($produs['stoc'] <= 10): ?>
+                        <span class="product-stock-low">Stoc limitat</span>
+                    <?php endif; ?>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-name"><?= htmlspecialchars($produs['nume']) ?></h3>
+                    <p class="product-desc"><?= htmlspecialchars($produs['descriere']) ?></p>
+                    <div class="product-rating">
+                        <?php
+                        $rating = $produs['rating'];
+                        for ($i = 1; $i <= 5; $i++):
+                        ?>
+                            <i class="ti <?= $i <= round($rating) ? 'ti-star-filled' : 'ti-star' ?>" style="color: <?= $i <= round($rating) ? '#e8511a' : '#ddd' ?>"></i>
+                        <?php endfor; ?>
+                        <span><?= $rating ?></span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price"><?= number_format($produs['pret'], 0, ',', '.') ?> lei</span>
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <button class="btn-add-cart" onclick="adaugaInCos(<?= $produs['id'] ?>)">
+                                <i class="ti ti-shopping-cart-plus"></i>
+                                Adaugă
+                            </button>
+                        <?php else: ?>
+                            <a href="login.php" class="btn-add-cart">
+                                <i class="ti ti-shopping-cart-plus"></i>
+                                Adaugă
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
 
     </div>
 </section>
 
-<footer class="site-footer">
-    <div class="footer-inner">
-
-        <div class="footer-brand">
-            <a href="index.php" class="logo">
-                <div class="logo-icon">
-                    <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-                        <circle cx="16" cy="16" r="13" stroke="white" stroke-width="2"/>
-                        <path d="M8 16 Q12 8 16 16 Q20 24 24 16" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        <circle cx="16" cy="16" r="2.5" fill="white"/>
-                    </svg>
-                </div>
-                <div class="logo-text">
-                    <span class="logo-name">SportZone</span>
-                    <span class="logo-tagline">Echipament de performanță</span>
-                </div>
-            </a>
-            <p class="footer-desc">
-                Magazinul tău online de articole sportive. Produse de calitate pentru sportivi amatori și profesioniști.
-            </p>
-            <div class="footer-social">
-                <a href="#" class="social-btn" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
-                <a href="#" class="social-btn" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-                <a href="#" class="social-btn" aria-label="TikTok"><i class="ti ti-brand-tiktok"></i></a>
-                <a href="#" class="social-btn" aria-label="YouTube"><i class="ti ti-brand-youtube"></i></a>
-            </div>
-        </div>
-
-        <div class="footer-col">
-            <h4>Produse</h4>
-            <ul class="footer-links">
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Încălțăminte</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Îmbrăcăminte</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Echipamente</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Accesorii</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Oferte speciale</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Cont</h4>
-            <ul class="footer-links">
-                <li><a href="login.php"><i class="ti ti-chevron-right"></i> Autentificare</a></li>
-                <li><a href="register.php"><i class="ti ti-chevron-right"></i> Înregistrare</a></li>
-                <li><a href="dashboard.php"><i class="ti ti-chevron-right"></i> Contul meu</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Comenzile mele</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Informații</h4>
-            <ul class="footer-links">
-                <li><a href="contact.php"><i class="ti ti-chevron-right"></i> Contact</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Despre noi</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> Politica de retur</a></li>
-                <li><a href="#"><i class="ti ti-chevron-right"></i> GDPR</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <span>© 2025 SportZone. Toate drepturile rezervate.</span>
-        <span>
-            <a href="#">Termeni și condiții</a> &nbsp;·&nbsp;
-            <a href="#">Politica de confidențialitate</a>
-        </span>
-    </div>
-</footer>
+<?php include 'footer.php'; ?>
 
 <script src="js/script.js"></script>
 <script>
+    // Hamburger
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
     if (hamburger && mobileNav) {
@@ -151,6 +169,40 @@
             hamburger.classList.toggle('open');
             mobileNav.classList.toggle('open');
         });
+    }
+
+    // Filtrare produse
+    const tabs = document.querySelectorAll('.filter-tab');
+    const cards = document.querySelectorAll('.product-card');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const filter = tab.dataset.filter;
+            cards.forEach(card => {
+                if (filter === 'toate' || card.dataset.categorie === filter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Adaugă în coș
+    function adaugaInCos(id) {
+        let cos = JSON.parse(localStorage.getItem('cos') || '[]');
+        if (!cos.includes(id)) {
+            cos.push(id);
+            localStorage.setItem('cos', JSON.stringify(cos));
+        }
+        const badge = document.querySelector('.cart-badge');
+        if (badge) badge.textContent = cos.length;
+
+        // Feedback vizual
+        alert('Produs adăugat în coș!');
     }
 </script>
 </body>
