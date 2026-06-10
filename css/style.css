@@ -1306,3 +1306,442 @@ ul { list-style: none; }
     .cos-summary { position: static; }
     .cos-card-img { width: 80px; height: 80px; }
 }
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lang-btn {
+    border: 1.5px solid var(--gray-border);
+    background: var(--white);
+    color: var(--navy);
+    padding: 7px 9px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: white;
+}
+
+.contact-textarea {
+    width: 100%;
+    min-height: 130px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: var(--radius-sm);
+    background: var(--gray-bg);
+    padding: 12px;
+    resize: vertical;
+    outline: none;
+    font-family: var(--font);
+    font-size: 15px;
+    color: var(--navy);
+}
+
+.contact-textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(232,81,26,0.1);
+    background: var(--white);
+}
+
+body.dark-mode {
+    background: #111827;
+    color: #f9fafb;
+}
+
+body.dark-mode .header-main,
+body.dark-mode .mobile-nav,
+body.dark-mode .auth-card,
+body.dark-mode .product-card,
+body.dark-mode .dash-block,
+body.dark-mode .dashboard-sidebar,
+body.dark-mode .cos-card,
+body.dark-mode .cos-summary {
+    background: #1f2937;
+    color: #f9fafb;
+    border-color: #374151;
+}
+
+body.dark-mode .hero,
+body.dark-mode .products-section,
+body.dark-mode .auth-section,
+body.dark-mode .dashboard-section,
+body.dark-mode .cos-section {
+    background: #111827;
+}
+
+body.dark-mode .nav-link,
+body.dark-mode .mobile-nav-link,
+body.dark-mode .section-subtitle,
+body.dark-mode .product-desc,
+body.dark-mode .auth-subtitle,
+body.dark-mode .dashboard-subtitle,
+body.dark-mode .dash-info-label {
+    color: #d1d5db;
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .section-title,
+body.dark-mode .product-name,
+body.dark-mode .auth-title,
+body.dark-mode .dashboard-title,
+body.dark-mode .dash-block-title,
+body.dark-mode .cos-title,
+body.dark-mode .summary-title {
+    color: #f9fafb;
+}
+
+body.dark-mode .input-wrap,
+body.dark-mode .search-bar,
+body.dark-mode .contact-textarea,
+body.dark-mode .icon-btn,
+body.dark-mode .lang-btn {
+    background: #111827;
+    border-color: #374151;
+    color: #f9fafb;
+}
+
+body.dark-mode .input-wrap input,
+body.dark-mode .search-bar input,
+body.dark-mode .contact-textarea {
+    color: #f9fafb;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.order-card {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-md);
+    padding: 18px;
+}
+
+.order-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.order-head h3 {
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.order-head p {
+    font-size: 13px;
+    color: var(--gray-text);
+}
+
+.order-status {
+    background: var(--orange-light);
+    color: var(--orange);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.order-products {
+    border-top: 1px solid var(--gray-border);
+    border-bottom: 1px solid var(--gray-border);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.order-product-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.order-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.order-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.order-form {
+    display: flex;
+    gap: 8px;
+}
+
+.order-form select {
+    border: 1.5px solid var(--gray-border);
+    border-radius: 8px;
+    padding: 8px;
+    background: white;
+    font-family: var(--font);
+}
+
+.btn-small-edit,
+.btn-small-delete {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: var(--font);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn-small-edit {
+    background: var(--orange);
+    color: white;
+}
+
+.btn-small-delete {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+body.dark-mode .order-card {
+    background: #111827;
+    border-color: #374151;
+}
+
+body.dark-mode .order-head h3,
+body.dark-mode .order-product-row,
+body.dark-mode .order-bottom {
+    color: #f9fafb;
+}
+
+body.dark-mode .order-form select {
+    background: #111827;
+    color: #f9fafb;
+    border-color: #374151;
+}
+
+/* ===== MODIFICĂRI CERUTE — HOME + DASHBOARD ===== */
+
+/* scoate spațiul rămas de la tagline dacă mai apare */
+.logo-tagline {
+    display: none !important;
+}
+
+/* elimină statisticile din hero dacă mai există prin CSS/HTML vechi */
+.hero-stats {
+    display: none !important;
+}
+
+/* dashboard cu 4 carduri */
+.dashboard-stats-four {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.dash-stat-icon.blue {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+/* tabel comenzi */
+.orders-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.orders-table th {
+    text-align: left;
+    padding: 14px 16px;
+    color: var(--navy);
+    font-weight: 800;
+    border-bottom: 1px solid var(--gray-border);
+    white-space: nowrap;
+}
+
+.orders-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--gray-border);
+    color: #444;
+    vertical-align: middle;
+}
+
+.orders-table tr:hover td {
+    background: #fafafa;
+}
+
+/* statusuri */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.status-new {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.status-processing {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.status-delivered {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.status-canceled {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+/* acțiuni tabel */
+.table-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.inline-form {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-select {
+    border: 1.5px solid var(--gray-border);
+    border-radius: 8px;
+    padding: 7px 8px;
+    background: white;
+    font-family: var(--font);
+    font-size: 13px;
+    outline: none;
+}
+
+.status-select:focus {
+    border-color: var(--orange);
+}
+
+.btn-icon-table {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--gray-border);
+    background: white;
+    color: var(--navy);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+    font-size: 16px;
+}
+
+.btn-icon-table:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+    background: var(--orange-light);
+}
+
+.btn-delete-table:hover {
+    background: #fee2e2;
+    border-color: #ef4444;
+    color: #dc2626;
+}
+
+/* detalii comandă */
+.order-details-row td {
+    background: #fffaf7 !important;
+}
+
+.order-details-box {
+    padding: 14px;
+    border: 1px dashed rgba(232,81,26,.35);
+    border-radius: 12px;
+    background: white;
+}
+
+.order-detail-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 14px;
+}
+
+.order-detail-item:last-child {
+    border-bottom: none;
+}
+
+/* dark mode pentru tabel */
+body.dark-mode .orders-table th,
+body.dark-mode .orders-table td {
+    color: #f9fafb;
+    border-color: #374151;
+}
+
+body.dark-mode .orders-table tr:hover td {
+    background: #111827;
+}
+
+body.dark-mode .status-select,
+body.dark-mode .btn-icon-table,
+body.dark-mode .order-details-box {
+    background: #111827;
+    color: #f9fafb;
+    border-color: #374151;
+}
+
+body.dark-mode .order-details-row td {
+    background: #111827 !important;
+}
+
+body.dark-mode .order-detail-item {
+    border-color: #374151;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+    .dashboard-stats-four {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .dashboard-stats-four {
+        grid-template-columns: 1fr;
+    }
+
+    .status-select {
+        max-width: 120px;
+    }
+}

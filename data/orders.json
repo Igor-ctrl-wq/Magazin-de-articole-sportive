@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1781071870,
+        "user_id": 1780378008,
+        "user_nume": "Igor Braniste",
+        "user_email": "branistedanu425@gmail.com",
+        "items": [
+            {
+                "id": 2,
+                "nume": "Nike Air Zoom Pegasus",
+                "categorie": "Încălțăminte",
+                "pret": 749,
+                "qty": 2,
+                "subtotal": 1498
+            }
+        ],
+        "total": 1498,
+        "status": "Nouă",
+        "data": "2026-06-10 08:11:10"
+    },
+    {
+        "id": 1781072256,
+        "user_id": 1780378008,
+        "user_nume": "Igor Braniste",
+        "user_email": "branistedanu425@gmail.com",
+        "items": [
+            {
+                "id": 11,
+                "nume": "Nike Dri-FIT T-Shirt",
+                "categorie": "Îmbrăcăminte",
+                "pret": 189,
+                "qty": 1,
+                "subtotal": 189
+            }
+        ],
+        "total": 189,
+        "status": "Nouă",
+        "data": "2026-06-10 08:17:36"
+    },
+    {
+        "id": 1781072694,
+        "user_id": 1780378008,
+        "user_nume": "Igor Braniste",
+        "user_email": "branistedanu425@gmail.com",
+        "items": [
+            {
+                "id": 5,
+                "nume": "Asics Gel-Nimbus 25",
+                "categorie": "Încălțăminte",
+                "pret": 829,
+                "qty": 1,
+                "subtotal": 829
+            }
+        ],
+        "total": 829,
+        "status": "Nouă",
+        "data": "2026-06-10 08:24:54"
+    }
+]
