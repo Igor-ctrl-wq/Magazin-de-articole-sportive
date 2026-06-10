@@ -23,15 +23,22 @@ $searchValue = htmlspecialchars($_GET['q'] ?? '', ENT_QUOTES, 'UTF-8');
         </a>
 
         <nav class="main-nav">
-            <a href="index.php" class="nav-link <?= $currentPage === 'index.php' ? 'active' : '' ?>">Acasă</a>
-            <a href="index.php#produse" class="nav-link">Produse</a>
-            <a href="index.php#oferte" class="nav-link">Oferte</a>
-            <a href="contact.php" class="nav-link <?= $currentPage === 'contact.php' ? 'active' : '' ?>">Contact</a>
+            <a href="index.php" class="nav-link <?= $currentPage === 'index.php' ? 'active' : '' ?>" data-i18n="nav.home">Acasă</a>
+            <a href="index.php#produse" class="nav-link" data-i18n="nav.products">Produse</a>
+            <a href="index.php#oferte" class="nav-link" data-i18n="nav.offers">Oferte</a>
+            <a href="contact.php" class="nav-link <?= $currentPage === 'contact.php' ? 'active' : '' ?>" data-i18n="nav.contact">Contact</a>
         </nav>
 
         <div class="header-actions">
             <form class="search-bar" action="index.php#produse" method="get">
-                <input type="text" id="productSearch" name="q" value="<?= $searchValue ?>" placeholder="Caută produse...">
+                <input 
+                    type="text" 
+                    id="productSearch" 
+                    name="q" 
+                    value="<?= $searchValue ?>" 
+                    placeholder="Caută produse..."
+                    data-i18n-placeholder="search.placeholder"
+                >
                 <button class="search-btn" type="submit">
                     <i class="ti ti-search"></i>
                 </button>
@@ -55,8 +62,8 @@ $searchValue = htmlspecialchars($_GET['q'] ?? '', ENT_QUOTES, 'UTF-8');
                     <i class="ti ti-logout"></i>
                 </a>
             <?php else: ?>
-                <a href="login.php" class="btn-outline-header">Autentificare</a>
-                <a href="register.php" class="btn-primary-header">Înregistrare</a>
+                <a href="login.php" class="btn-outline-header" data-i18n="nav.login">Autentificare</a>
+                <a href="register.php" class="btn-primary-header" data-i18n="nav.register">Înregistrare</a>
             <?php endif; ?>
 
             <a href="cos.php" class="icon-btn cart-btn" title="Coș">
@@ -71,17 +78,17 @@ $searchValue = htmlspecialchars($_GET['q'] ?? '', ENT_QUOTES, 'UTF-8');
     </div>
 
     <nav class="mobile-nav" id="mobileNav">
-        <a href="index.php" class="mobile-nav-link">Acasă</a>
-        <a href="index.php#produse" class="mobile-nav-link">Produse</a>
-        <a href="index.php#oferte" class="mobile-nav-link">Oferte</a>
-        <a href="contact.php" class="mobile-nav-link">Contact</a>
+        <a href="index.php" class="mobile-nav-link" data-i18n="nav.home">Acasă</a>
+        <a href="index.php#produse" class="mobile-nav-link" data-i18n="nav.products">Produse</a>
+        <a href="index.php#oferte" class="mobile-nav-link" data-i18n="nav.offers">Oferte</a>
+        <a href="contact.php" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
 
         <?php if (isset($_SESSION['user'])): ?>
-            <a href="dashboard.php" class="mobile-nav-link">Contul meu</a>
-            <a href="logout.php" class="mobile-nav-link">Logout</a>
+            <a href="dashboard.php" class="mobile-nav-link" data-i18n="nav.account">Contul meu</a>
+            <a href="logout.php" class="mobile-nav-link" data-i18n="nav.logout">Logout</a>
         <?php else: ?>
-            <a href="login.php" class="mobile-nav-link">Autentificare</a>
-            <a href="register.php" class="mobile-nav-link">Înregistrare</a>
+            <a href="login.php" class="mobile-nav-link" data-i18n="nav.login">Autentificare</a>
+            <a href="register.php" class="mobile-nav-link" data-i18n="nav.register">Înregistrare</a>
         <?php endif; ?>
     </nav>
 </header>

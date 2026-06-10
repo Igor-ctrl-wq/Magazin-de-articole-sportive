@@ -55,5 +55,24 @@
         "total": 829,
         "status": "Nouă",
         "data": "2026-06-10 08:24:54"
+    },
+    {
+        "id": 1781129982,
+        "user_id": 1780378008,
+        "user_nume": "Igor Braniste",
+        "user_email": "branistedanu425@gmail.com",
+        "items": [
+            {
+                "id": 32,
+                "nume": "Bidon Sport 750ml",
+                "categorie": "Accesorii",
+                "pret": 79,
+                "qty": 1,
+                "subtotal": 79
+            }
+        ],
+        "total": 79,
+        "status": "Nouă",
+        "data": "2026-06-11 00:19:42"
     }
 ]

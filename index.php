@@ -39,12 +39,13 @@ if ($q !== '') {
 <section class="hero">
     <div class="hero-inner">
         <div class="hero-content">
-            <h1 class="hero-title">
+
+            <h1 class="hero-title" data-i18n="hero.title">
                 Cea mai bună<br>
                 <span>calitate</span>
             </h1>
 
-            <p class="hero-desc">
+            <p class="hero-desc" data-i18n="hero.desc">
                 Articole sportive premium pentru alergare, fitness, fotbal și antrenamente.
                 Alege produse de calitate pentru performanță la orice nivel.
             </p>
@@ -52,12 +53,12 @@ if ($q !== '') {
             <div class="hero-actions">
                 <a href="#produse" class="btn-hero-primary">
                     <i class="ti ti-shopping-bag"></i>
-                    Cumpără acum
+                    <span data-i18n="hero.buy">Cumpără acum</span>
                 </a>
 
                 <a href="#produse" class="btn-hero-secondary">
                     <i class="ti ti-category"></i>
-                    Vezi categorii
+                    <span data-i18n="hero.categories">Vezi categorii</span>
                 </a>
             </div>
         </div>
@@ -73,8 +74,8 @@ if ($q !== '') {
                         <i class="ti ti-truck-delivery"></i>
                     </div>
                     <div>
-                        Livrare rapidă
-                        <span class="hero-float-sub">În toată Moldova</span>
+                        <span data-i18n="hero.deliveryTitle">Livrare rapidă</span>
+                        <span class="hero-float-sub" data-i18n="hero.deliverySub">În toată Moldova</span>
                     </div>
                 </div>
 
@@ -83,8 +84,8 @@ if ($q !== '') {
                         <i class="ti ti-rosette-discount"></i>
                     </div>
                     <div>
-                        Oferte speciale
-                        <span class="hero-float-sub">Reduceri la produse selectate</span>
+                        <span data-i18n="hero.offerTitle">Oferte speciale</span>
+                        <span class="hero-float-sub" data-i18n="hero.offerSub">Reduceri la produse selectate</span>
                     </div>
                 </div>
             </div>
@@ -97,18 +98,18 @@ if ($q !== '') {
 
         <div class="section-header">
             <div>
-                <h2 class="section-title">Produse recomandate</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-i18n="products.title">Produse recomandate</h2>
+                <p class="section-subtitle" data-i18n="products.subtitle">
                     Cele mai populare articole sportive din colecția noastră
                 </p>
             </div>
 
             <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="toate">Toate</button>
-                <button class="filter-tab" data-filter="Încălțăminte">Încălțăminte</button>
-                <button class="filter-tab" data-filter="Îmbrăcăminte">Îmbrăcăminte</button>
-                <button class="filter-tab" data-filter="Echipamente">Echipamente</button>
-                <button class="filter-tab" data-filter="Accesorii">Accesorii</button>
+                <button class="filter-tab active" data-filter="toate" data-i18n="products.all">Toate</button>
+                <button class="filter-tab" data-filter="Încălțăminte" data-i18n="products.shoes">Încălțăminte</button>
+                <button class="filter-tab" data-filter="Îmbrăcăminte" data-i18n="products.clothes">Îmbrăcăminte</button>
+                <button class="filter-tab" data-filter="Echipamente" data-i18n="products.equipment">Echipamente</button>
+                <button class="filter-tab" data-filter="Accesorii" data-i18n="products.accessories">Accesorii</button>
             </div>
         </div>
 
@@ -121,7 +122,7 @@ if ($q !== '') {
         <?php if (empty($produse)): ?>
             <div class="products-empty">
                 <i class="ti ti-mood-empty"></i>
-                <p>Nu există produse disponibile momentan.</p>
+                <p data-i18n="products.empty">Nu există produse disponibile momentan.</p>
             </div>
         <?php else: ?>
             <div class="products-grid">
@@ -141,7 +142,7 @@ if ($q !== '') {
                             </span>
 
                             <?php if ((int)$produs['stoc'] <= 10): ?>
-                                <span class="product-stock-low">Stoc limitat</span>
+                                <span class="product-stock-low" data-i18n="products.lowStock">Stoc limitat</span>
                             <?php endif; ?>
                         </div>
 
@@ -173,12 +174,12 @@ if ($q !== '') {
                                 <?php if (isset($_SESSION['user'])): ?>
                                     <button class="btn-add-cart" onclick="adaugaInCos(<?= (int)$produs['id'] ?>)">
                                         <i class="ti ti-shopping-cart-plus"></i>
-                                        Adaugă
+                                        <span data-i18n="products.add">Adaugă</span>
                                     </button>
                                 <?php else: ?>
                                     <a href="login.php" class="btn-add-cart">
                                         <i class="ti ti-shopping-cart-plus"></i>
-                                        Adaugă
+                                        <span data-i18n="products.add">Adaugă</span>
                                     </a>
                                 <?php endif; ?>
                             </div>
@@ -195,8 +196,8 @@ if ($q !== '') {
     <div class="products-inner">
         <div class="section-header">
             <div>
-                <h2 class="section-title">Oferte speciale</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-i18n="offers.title">Oferte speciale</h2>
+                <p class="section-subtitle" data-i18n="offers.subtitle">
                     Reduceri și beneficii pentru clienții SportZone.
                 </p>
             </div>
@@ -209,7 +210,7 @@ if ($q !== '') {
                 </div>
                 <div>
                     <span class="dash-stat-number">-30%</span>
-                    <span class="dash-stat-label">La prima comandă</span>
+                    <span class="dash-stat-label" data-i18n="offers.firstOrder">La prima comandă</span>
                 </div>
             </div>
 
@@ -219,7 +220,7 @@ if ($q !== '') {
                 </div>
                 <div>
                     <span class="dash-stat-number">0 lei</span>
-                    <span class="dash-stat-label">Livrare peste 300 lei</span>
+                    <span class="dash-stat-label" data-i18n="offers.delivery">Livrare peste 300 lei</span>
                 </div>
             </div>
 
@@ -229,7 +230,7 @@ if ($q !== '') {
                 </div>
                 <div>
                     <span class="dash-stat-number">30 zile</span>
-                    <span class="dash-stat-label">Retur gratuit</span>
+                    <span class="dash-stat-label" data-i18n="offers.return">Retur gratuit</span>
                 </div>
             </div>
         </div>
@@ -239,6 +240,7 @@ if ($q !== '') {
 <?php include 'footer.php'; ?>
 
 <script src="js/script.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.filter-tab');
